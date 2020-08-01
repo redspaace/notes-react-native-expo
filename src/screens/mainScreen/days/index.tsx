@@ -4,8 +4,18 @@ import { View, Text } from 'react-native';
 import styles from './styles';
 
 export default function Days() {
-  const weekList = ['Dom', 'Seg', 'Terç', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'];
+  function calculatePreviouWeeks(num: number) {
+    let nameDaysWeek = ['Dom', 'Seg', 'Terç', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'];
+    let day = new Date().getDay();
+
+    if(day - num <= 0) {
+      day += 7;
+    }
   
+    day -= num;
+    return nameDaysWeek[day];
+  }
+
   function calculatePreviouDays(num: number) {
     let numberDaysMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     let day = new Date().getDate();
@@ -13,20 +23,23 @@ export default function Days() {
 
     if(day - num <= 0) {
       day += numberDaysMonth[month-1];
-      day -=num;
-    } else {
-      day -= num;
     }
-    
+      
+    day -= num;
     return day;
-  }
-
-  function calculatePreviouWeeks(num: number) {
-
   }
 
   return(
     <View style={styles.container}>
+      <View style={styles.row}>
+        <Text style={styles.todayDate}>{calculatePreviouWeeks(6)}</Text>
+        <Text style={styles.todayDate}>{calculatePreviouWeeks(5)}</Text>
+        <Text style={styles.todayDate}>{calculatePreviouWeeks(4)}</Text>
+        <Text style={styles.todayDate}>{calculatePreviouWeeks(3)}</Text>
+        <Text style={styles.todayDate}>{calculatePreviouWeeks(2)}</Text>
+        <Text style={styles.todayDate}>{calculatePreviouWeeks(1)}</Text>
+        <Text style={styles.todayDate}>{calculatePreviouWeeks(0)}</Text>
+      </View>
       <View style={styles.row}>
         <Text style={styles.todayDate}>{calculatePreviouDays(6)}</Text>
         <Text style={styles.todayDate}>{calculatePreviouDays(5)}</Text>
@@ -35,16 +48,6 @@ export default function Days() {
         <Text style={styles.todayDate}>{calculatePreviouDays(2)}</Text>
         <Text style={styles.todayDate}>{calculatePreviouDays(1)}</Text>
         <Text style={styles.todayDate}>{calculatePreviouDays(0)}</Text>
-      </View>
-
-      <View style={styles.row}>
-        <Text style={styles.todayDate}>{}</Text>
-        <Text style={styles.todayDate}>{}</Text>
-        <Text style={styles.todayDate}>{}</Text>
-        <Text style={styles.todayDate}>{}</Text>
-        <Text style={styles.todayDate}>{}</Text>
-        <Text style={styles.todayDate}>{}</Text>
-        <Text style={[styles.todayDate, styles.today]}>{}</Text>
       </View>
     </View>
   );
