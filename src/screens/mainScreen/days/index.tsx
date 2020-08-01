@@ -3,8 +3,10 @@ import { View, Text } from 'react-native';
 
 import styles from './styles';
 
-//The function are used to order the weekly line correctly
+
 export default function Days() {
+  
+  //The function are used to order the weekly line correctly
   function calculatePreviouWeeks(num: number) {
     let nameDaysWeek = ['Dom', 'Seg', 'Terç', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'];
     let day = new Date().getDay();
@@ -13,13 +15,13 @@ export default function Days() {
       day += 7;
     }
     day -= num;
-    
+
     return nameDaysWeek[day];
   }
 
   //Do the same as the other, but with the names of the day of the week
   function calculatePreviouDays(num: number) {
-    let numberDaysMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    let numberDaysMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]; //January, February, March, etc
     let day = new Date().getDate();
     let month = new Date().getMonth();
 
