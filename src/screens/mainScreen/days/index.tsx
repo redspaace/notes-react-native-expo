@@ -12,7 +12,7 @@ export default function Days() {
     let day = new Date().getDay();
 
     if(day - num <= 0) {
-      day += 7;
+      day += 7; //7 is the number of days in a week
     }
     day -= num;
 
@@ -36,22 +36,34 @@ export default function Days() {
   return(
     <View style={styles.container}>
       <View style={styles.row}>
-        <Text style={styles.todayDate}>{calculatePreviouWeeks(6)}</Text>
-        <Text style={styles.todayDate}>{calculatePreviouWeeks(5)}</Text>
-        <Text style={styles.todayDate}>{calculatePreviouWeeks(4)}</Text>
-        <Text style={styles.todayDate}>{calculatePreviouWeeks(3)}</Text>
-        <Text style={styles.todayDate}>{calculatePreviouWeeks(2)}</Text>
-        <Text style={styles.todayDate}>{calculatePreviouWeeks(1)}</Text>
-        <Text style={styles.todayDate}>{calculatePreviouWeeks(0)}</Text>
-      </View>
-      <View style={styles.row}>
-        <Text style={styles.todayDate}>{calculatePreviouDays(6)}</Text>
-        <Text style={styles.todayDate}>{calculatePreviouDays(5)}</Text>
-        <Text style={styles.todayDate}>{calculatePreviouDays(4)}</Text>
-        <Text style={styles.todayDate}>{calculatePreviouDays(3)}</Text>
-        <Text style={styles.todayDate}>{calculatePreviouDays(2)}</Text>
-        <Text style={styles.todayDate}>{calculatePreviouDays(1)}</Text>
-        <Text style={styles.todayDate}>{calculatePreviouDays(0)}</Text>
+        <View style={styles.day}>
+          <Text style={styles.todayDate}>{calculatePreviouWeeks(6)}</Text>
+          <Text style={styles.todayDate}>{calculatePreviouDays(6)}</Text>
+        </View>
+        <View style={styles.day}>
+          <Text style={styles.todayDate}>{calculatePreviouWeeks(5)}</Text>
+          <Text style={styles.todayDate}>{calculatePreviouDays(5)}</Text>
+        </View>
+        <View style={styles.day}>
+          <Text style={styles.todayDate}>{calculatePreviouWeeks(4)}</Text>
+          <Text style={styles.todayDate}>{calculatePreviouDays(4)}</Text>
+        </View>
+        <View style={styles.day}>
+          <Text style={styles.todayDate}>{calculatePreviouWeeks(3)}</Text>
+          <Text style={styles.todayDate}>0{calculatePreviouDays(3)}</Text>
+        </View>
+        <View style={styles.day}>
+          <Text style={styles.todayDate}>{calculatePreviouWeeks(2)}</Text>
+          <Text style={styles.todayDate}>0{calculatePreviouDays(2)}</Text>
+        </View>
+        <View style={styles.day}>
+          <Text style={styles.todayDate}>{calculatePreviouWeeks(2)}</Text>
+          <Text style={styles.todayDate}>0{calculatePreviouDays(1)}</Text>
+        </View>
+        <View style={styles.day}>
+          <Text style={styles.todayDate}>{calculatePreviouWeeks(0)}</Text>
+          <Text style={styles.todayDate}>0{calculatePreviouDays(0)}</Text>
+        </View>
       </View>
     </View>
   );

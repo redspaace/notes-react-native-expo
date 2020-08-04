@@ -12,8 +12,11 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    textAlign: 'center'
-    
+    alignItems: 'center'    
+  },
+
+  day: {
+    alignItems: 'center'
   },
   
   todayDate: {
